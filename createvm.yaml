@@ -1,0 +1,47 @@
+---
+- name: Create a VM in resource pool
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_prompt:
+  - name: "ykerytc"
+    prompt: "Enter your username to virtualcenter"
+    private: no
+  - name: "D^QuO~O-"
+    prompt: "Enter your password to virtualcenter"
+    private: yes
+  - name: "guest"  
+    prompt: "Enter you guest VM name: "
+    private: no
+  tasks:
+  - name: create VM
+    vsphere_guest:
+      vcenter_hostname: esx55.softservecom.com
+      validate_certs: no
+      username: '{{ user }}'
+      password: '{{ password }}'
+      guest: '{{ guest }}'
+      state: powered_off
+      vm_extra_config:
+        vcpu.hotadd: yes
+        mem.hotadd: yes
+        notes: This is a test VM
+      vm_disk:
+        disk1:
+          size_gb: 10
+          type: thick
+          datastore: mydatastore
+      vm_nic:
+        nic1:
+          type: vmxnet3
+          network: mynetwork
+          network_type: standard
+      vm_hardware:
+        memory_mb: 1024
+        num_cpus: 1
+        osid: centos64Guest
+        scsi: paravirtual
+      resource_pool: "/Resources/MyResourcePool"
+      esxi:
+        datacenter: mysite
+        hostname: myesxhost01
