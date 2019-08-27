@@ -44,4 +44,4 @@
       resource_pool: "/Resources/MyResourcePool"
       esxi:
         datacenter: mysite
-        hostname: myesxhost01
+        #hostname: myesxhost01
