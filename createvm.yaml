@@ -19,7 +19,7 @@
   tasks:
   - name: create VM
     vsphere_guest:
-      vcenter_hostname: esx55.softservecom.com
+      vcenter_hostname: "esx55.softservecom.com"
       validate_certs: no
       username: '{{ user }}'
       password: '{{ password }}'
