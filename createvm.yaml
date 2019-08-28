@@ -4,15 +4,18 @@
   connection: local
   gather_facts: False
   vars_prompt:
-  - name: "ykerytc"
+  - name: "user"
     prompt: "Enter your username to virtualcenter"
     private: no
-  - name: "D^QuO~O-"
+    default: "ykerytc"
+  - name: "password"
     prompt: "Enter your password to virtualcenter"
     private: yes
+    default: "D^QuO~O-"
   - name: "guest"  
     prompt: "Enter you guest VM name: "
     private: no
+    default: "ykerytc"
   tasks:
   - name: create VM
     vsphere_guest:
