@@ -12,10 +12,10 @@
     prompt: "Enter your password to virtualcenter"
     private: yes
     default: "D^QuO~O-"
-  - name: "guest"  
-    prompt: "Enter you guest VM name: "
-    private: no
-    default: "ykerytc"
+#  - name: "guest"  
+#    prompt: "Enter you guest VM name: "
+#    private: no
+#    default: "ykerytc"
   tasks:
   - name: create VM
     vsphere_guest:
